@@ -1,0 +1,57 @@
+1) ok
+2) ok
+3 + 4)
+   - find bootstrap cheat sheet
+    http://www.brandx.net/support/websites/bootstrap/bootstrap-cheat-sheet.html
+   - looked up 'bootstrap column offset' -> find even better overview in the official docs :)
+     http://getbootstrap.com/css/
+   - use glyphicon instead of font awesome
+   - use margin to center vertically
+5) ok
+6) ok
+7) ok
+time elapsed: 1 hour
+8) ok
+9) ok
+10) ok
+11) ok
+12) lookup $.ajax on
+    http://api.jquery.com/jquery.ajax/#jQuery-ajax-url-settings
+    response is stored in json object -> output "Object"
+13) ok
+14) ok
+15) ok
+16) ok
+17) ok
+18) ok
+time elapsed: 1 hour (total 2h)
+19) used glyphicon-play-circle
+20) Hmmm. I didn't see the array yet, only that there is an 'object'.
+If I'm lucky that is an array.
+I'll try to log each item to the console first.
+Thus I have to call renderTracks from the document.ready function to see anything.
+Doesn't work as expected.
+
+I think I have to revisit step 12) and stay there until I have this track list.
+
+Steps to understand what happens:
+- Go back to jquery lesson on ajax()
+- Take a close look at he answer from the request displayed in a browser
+  and make the beginning of this file readable by indentation (see sampledata)
+- this reveals the internal structure of the data returned
+
+-> the track list is thus
+   data.results.trackmatches.track
+
+- make the outer function return the tracklist
+-> learn about callback functions ?
+   http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/
+
+AHA! Problem resolved in a simple straightforward way:
+call renderTracks from WITHIN the $ajax.success function!
+
+console.log(tracks[0].name) inside renderTracks gives the expected result
+
+time elapsed 1 1/2 h (total: 3 1/2 h)
+
+Now I can resume in step 20)

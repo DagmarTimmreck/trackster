@@ -1,0 +1,52 @@
+/*
+  Custom styles for Trackster App
+*/
+html {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+}
+body {
+  background-color: rgb(255, 255, 255);
+  color: rgb(74, 74, 74);
+}
+
+header {
+  background-color: rgb(35, 2, 63);
+}
+
+h1 {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  font-family: Righteous, fantasy;
+  font-size: 2.5rem;
+  color: rgb(255, 0, 171);
+}
+
+.form-control,
+.btn {
+  margin: 2rem 0;
+  border-radius: 1rem;
+}
+
+.form-control {
+  color: rgb(191, 191, 191);
+}
+
+.btn {
+  width: 100%;
+  background-color: rgb(255, 102, 204);
+}
+
+.table-header {
+  height: 3rem;
+  color: rgb(255, 255, 255);
+  background-color: rgb(104, 0, 255);
+}
+.row {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+.glyphicon-play-circle {
+  color: rgb(255, 0, 171);
+}
