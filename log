@@ -55,3 +55,18 @@ console.log(tracks[0].name) inside renderTracks gives the expected result
 time elapsed 1 1/2 h (total: 3 1/2 h)
 
 Now I can resume in step 20)
+
+20) ok
+21) ok
+22) ok
+23) ok
+24) Is there a way to get the track number when using (track of tracks)?
+    substituted with counter variable
+25) ok
+26) Aha! I should have read all the instructions first...
+    I still prefer to have visual progress in each step
+27) ok
+    Had to render the table header again
+28) Tests not yet passing
+
+time elapsed 1/2 h (total: 4 h)

@@ -3,6 +3,12 @@ var Trackster = {};
 http://ws.audioscrobbler.com/2.0/?method=track.search&track=tiny&api_key=11bae60aa9f2e11351232f006a9bfef8&format=json
 */
 var API_KEY = '11bae60aa9f2e11351232f006a9bfef8'
+var TABLE_HEADER = '<div class="row table-header">'
+                   + '<div class="col-xs-3 col-xs-offset-2"> # Song </div>'
+                   + '<div class="col-xs-2">Artist</div>'
+                   + '<div class="col-xs-2">Album</div>'
+                   + '<div class="col-xs-3">Listeners</div>'
+                   + '</div>';
 
 /* init event handler when document is ready */
 $(document).ready(function() {
@@ -18,28 +24,33 @@ $(document).ready(function() {
   Append each "row" to the container in the body to display all tracks.
 */
 Trackster.renderTracks = function(tracks) {
-  console.log(tracks[0].name);
-  /* var ref = "#";
-  for (var track of tracks) {
+  var $main = $('main');
+  $main.empty();
+  $main.append($(TABLE_HEADER));
+
+  for (var i=0; i<tracks.length; i++) {
+    var track = tracks[i];
+    var mediumAlbumArt = track.image[1]['#text'];
     trackHtml = '<div class="row">'
                 + '<div class="col-xs-1 col-xs-offset-1">'
-                + '<a href="https://www.youtube.com/watch?v=yYcyacLRPNs" class="glyphicon glyphicon-play-circle" aria-label="play"></a>'
+                + '<a href="' + track.url + '" class="glyphicon glyphicon-play-circle" aria-label="play"></a>'
                 + '</div>'
                 + '<div class="col-xs-3">'
-                + '1 Fairytale in the Supermarket'
+                + (i+1) + ' ' + track.name
                 + '</div>'
                 + '<div class="col-xs-2">'
-                + 'The Raincoats'
+                + track.artist
                 + '</div>'
                 + '<div class="col-xs-2">'
-                + 'The Raincoats'
+                + '<img src='
+                + mediumAlbumArt
+                + '>'
                 + '</div>'
                 + '<div class="col-xs-1">'
-                + '101,839'
+                + track.listeners
                 + '</div>';
-    $('main').append(trackHtml);
+    $main.append($(trackHtml));
   }
-  */
 };
 
 /*
@@ -48,7 +59,7 @@ Trackster.renderTracks = function(tracks) {
 */
 Trackster.searchTracksByTitle = function(title) {
   $.ajax({
-        url: "http://ws.audioscrobbler.com/2.0/?method=track.search&track="
+        url: "https://ws.audioscrobbler.com/2.0/?method=track.search&track="
               + title + "&api_key=" + API_KEY + "&format=json",
         datatype: 'jsonp',
         success: function(data) {
